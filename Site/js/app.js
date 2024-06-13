@@ -8,7 +8,10 @@ var body = document.querySelector("body");
 btnSignin.addEventListener("click", function () {
    body.className = "sign-in-js"; 
 });
-
+btnSignin.addEventListener("click", function () {
+    body.className = "sign-in-js";
+    updateLanguage(languageSelect.value); // Adicione essa linha
+});
 btnSignup.addEventListener("click", function () {
     body.className = "sign-up-js";
 })
