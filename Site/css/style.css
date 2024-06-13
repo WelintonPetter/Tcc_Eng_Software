@@ -4,8 +4,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Open Sans', sans-serif;
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    height: 100vh; /* Garante que o fundo cubra toda a altura da janela */
+    margin: 0;
+    padding: 0;
 }
 .container {
     display: flex;
@@ -13,6 +20,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #ecf0f1;
+    background: url('img/backgroud.jpg') no-repeat;
 }
 .content {
     background-color: #fff;
@@ -36,7 +44,7 @@ body {
     left: 0;
 }
 .title {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
     text-transform: capitalize;
 }
@@ -251,6 +259,29 @@ input:-webkit-autofill
     padding: 5px;
     font-size: 14px;
 }
+
+
+.remember-forgot input[type="checkbox"] {
+    font-size: 10px;
+    width: 13px; /* Define a largura do checkbox */
+    height: 13px; /* Define a altura do checkbox */
+    border: 2px solid #58af9b; /* Define a borda do checkbox */
+    border-radius: 3px; /* Define o arredondamento das bordas */
+    background-color: transparent; /* Define a cor de fundo do checkbox */
+    appearance: none; /* Remove o estilo padrão do checkbox */
+    cursor: pointer; /* Define o cursor como ponteiro */
+    margin-right: 5px; /* Define a margem direita do checkbox */
+}
+
+.remember-forgot input[type="checkbox"]:checked {
+    background-color: #58af9b; /* Define a cor de fundo quando marcado */
+    border: none; /* Remove a borda quando marcado */
+    
+}
+.remember-forgot label {
+    font-size: 13px; /* Diminui o tamanho do texto do label */
+}
+
 /*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
 
 @keyframes deslocamentoEsq {
