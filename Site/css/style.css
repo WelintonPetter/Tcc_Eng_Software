@@ -122,7 +122,8 @@ body {
     background-color: #fff;
     color: #58af9b;
 }
-.btn-second {
+
+.btn-second, .language-selector {
     background-color: #58af9b;
     border: 1px solid #58af9b;
     transition: background-color .5s;
@@ -139,16 +140,25 @@ body {
 }
 .btn-expandir > i{
     color: #fff;
-    font-size: 24px;
+    font-size: 30px;
     cursor:pointer;
+   
 }
 
 .container-home{
-    
-    width: 300px;
+    overflow: hidden;
+    width: 70px;
     height: 100%;
     background-color: #202020;
     padding: 40px 0 40px 1%;
+    box-shadow: 3px 0 0 #58af9b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .2s;
+}
+.container-home:hover{
+    width: 250px;
 }
 .first-content {
     display: flex;
@@ -340,6 +350,7 @@ ul{
 }
 ul li.item-menu:hover {
     background: #58af9b;
+    
 }
 ul li.item-menu{
     color: #fff;
@@ -350,13 +361,25 @@ ul li.item-menu{
     margin-bottom: 20px; 
     line-height: 40px;
 }
+ul li.item-menu{
+    transition: .5s;
+}
+ul li.item-menu a{
+    text-decoration: none;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
 
 ul li.item-menu a .txt-link{
 margin-left: 40px;
-text-decoration: none;
+color: #fff;
+
 }
 ul li.item-menu a .icon > i{
     font-size: 30px;
+    color: #fff;
+    
 }
 /*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
 
