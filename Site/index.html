@@ -15,14 +15,12 @@
             <option value="pt">Português</option>
             <option value="en">English</option>
             <option value="es">Español</option>
-                 
         </select>
     </div>
     <div class="container">
         <div class="content first-content">
             <div class="first-column">        
                 <img src="icon/register.svg" class ="left-login-image" alt="Animação Fabrica">
-        
                 <button id="signin" class="btn btn-primary">Entrar</button>
             </div>    
             <div class="second-column">
@@ -42,18 +40,15 @@
                         <i class="far fa-user icon-modify"></i>
                         <input id="name" type="text" placeholder="Nome">
                     </label>
-                    
                     <label class="label-input" for="email-signup">
                         <i class="far fa-envelope icon-modify"></i>
                         <input id="email-signup" type="email" placeholder="Email">
                     </label>
-                    
                     <label class="label-input" for="password-signup">
                         <i class="fas fa-lock icon-modify"></i>
                         <input id="password-signup" type="password" placeholder="Senha">
                     </label>
-                    
-                    <button class="btn btn-second">Cadastrar</button>        
+                    <button type="button" class="btn btn-second" id="signupButton">Cadastrar</button>        
                 </form>
             </div>
         </div>
@@ -82,20 +77,20 @@
                         <i class="far fa-envelope icon-modify"></i>
                         <input id="email-login" type="email" placeholder="Email">
                     </label>
-                
                     <label class="label-input" for="password-login">
                         <i class="fas fa-lock icon-modify"></i>
                         <input id="password-login" type="password" placeholder="Senha">
                     </label>
-                    <div class="remember-forgot"><label> <input type="checkbox"> lembrar-me </label>
+
+                    <div class="remember-forgot">
+                        <label><input type="checkbox"> lembrar-me </label>
                     </div>
-                
-                
+                    <div class="remember-forgot1">
+                        <label><input type="checkbox">  </label>
+                    </div>
+
                     <a class="password" href="#">Esqueceu sua senha?</a>
-                    <button class="btn btn-second">Entrar</button>
-                    
-
-
+                    <button type="button" class="btn btn-second" id="signinButton">Entrar</button>
                 </form>
             </div>
         </div>

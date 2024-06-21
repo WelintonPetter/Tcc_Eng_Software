@@ -4,6 +4,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+.avatar{
+    width: 50px;
+    position: absolute;
+    top:5px;
+    right:100px ;
+    align-self: center;
+    filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.90));
+}
+.out{
+    width: 40px;
+    position: absolute;
+    top:10px;
+    align-self: center;
+    right:30px ;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -14,6 +29,11 @@ body {
     margin: 0;
     padding: 0;
 }
+.btn-expandir {
+    
+    width: 100%;
+    padding-left: 10px;
+}
 .container {
     display: flex;
     justify-content: center;
@@ -21,6 +41,11 @@ body {
     height: 100vh;
     background-color: #ecf0f1;
     background: url('img/backgroud.jpg') no-repeat;
+}
+.container-top {
+    background-color: #090c0b;
+    padding: 30px;
+
 }
 .content {
     background-color: #fff;
@@ -43,11 +68,29 @@ body {
 
     left: 0;
 }
-.title {
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: capitalize;
+.content-home {
+    background-color: #fff;
+    border-radius: 15px;
+    width: 1800px;
+    height: 90%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
+
+/*.content-home::before {
+    content: "";
+    position: absolute;
+    background-color: #58af9b;
+    width: 15%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+
+    left: 0;
+}*/
+
 .title-primary {
     color: #fff;
 }
@@ -261,7 +304,7 @@ input:-webkit-autofill
 }
 
 
-.remember-forgot input[type="checkbox"] {
+.remember-forgot1 input[type="checkbox"] {
     font-size: 10px;
     width: 13px; /* Define a largura do checkbox */
     height: 13px; /* Define a altura do checkbox */
@@ -273,7 +316,7 @@ input:-webkit-autofill
     margin-right: 5px; /* Define a margem direita do checkbox */
 }
 
-.remember-forgot input[type="checkbox"]:checked {
+.remember-forgot1 input[type="checkbox"]:checked {
     background-color: #58af9b; /* Define a cor de fundo quando marcado */
     border: none; /* Remove a borda quando marcado */
     

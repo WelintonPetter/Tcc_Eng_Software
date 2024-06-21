@@ -1,22 +1,12 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var btnSignin = document.querySelector("#signin");
+    var btnSignup = document.querySelector("#signup");
+    var signinButton = document.querySelector("#signinButton");
+    var signupButton = document.querySelector("#signupButton");
 
-var btnSignin = document.querySelector("#signin");
-var btnSignup = document.querySelector("#signup");
+    var body = document.querySelector("body");
+    var languageSelect = document.getElementById('language-select');
 
-var body = document.querySelector("body");
-
-
-btnSignin.addEventListener("click", function () {
-   body.className = "sign-in-js"; 
-});
-btnSignin.addEventListener("click", function () {
-    body.className = "sign-in-js";
-    updateLanguage(languageSelect.value); // Adicione essa linha
-});
-btnSignup.addEventListener("click", function () {
-    body.className = "sign-up-js";
-})
-document.addEventListener('DOMContentLoaded', () => {
-    const languageSelect = document.getElementById('language-select');
     const textElements = {
         'pt': {
             'welcomeBack': 'Bem-vindo de volta!',
@@ -34,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'inMaintenance': 'na gestão de manutenção conosco.',
             'loginToPlatform': 'Faça login na plataforma',
             'useEmailToLogin': 'ou use sua conta de e-mail:',
-            'forgotPassword': 'Esqueceu sua senha?'
+            'forgotPassword': 'Esqueceu sua senha?',
+            'remind': 'lembrar-me?'
         },
         'en': {
             'welcomeBack': 'Welcome back!',
@@ -52,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'inMaintenance': 'in maintenance management with us.',
             'loginToPlatform': 'Login to the platform',
             'useEmailToLogin': 'or use your email account:',
-            'forgotPassword': 'Forgot your password?'
+            'forgotPassword': 'Forgot your password?',
+            'remind': 'Remind Me'
         },
         'es': {
             'welcomeBack': '¡Bienvenido de nuevo!',
@@ -70,34 +62,52 @@ document.addEventListener('DOMContentLoaded', () => {
             'inMaintenance': 'en la gestión de mantenimiento con nosotros.',
             'loginToPlatform': 'Inicia sesión en la plataforma',
             'useEmailToLogin': 'o usa tu cuenta de correo:',
-            'forgotPassword': '¿Olvidaste tu contraseña?'
+            'forgotPassword': '¿Olvidaste tu contraseña?',
+            'remind': 'Recuérdame?'
         }
     };
 
     function updateLanguage(language) {
-        document.querySelector('.title-primary').textContent = textElements[language]['welcomeBack'];
-        document.querySelectorAll('.description-primary')[0].textContent = textElements[language]['stayConnected'];
-        document.querySelectorAll('.description-primary')[1].textContent = textElements[language]['loginWithPersonalInfo'];
-        document.getElementById('signin').textContent = textElements[language]['signIn'];
-        document.querySelector('.title-second').textContent = textElements[language]['createAccount'];
-        document.querySelector('.description-second').textContent = textElements[language]['useEmailToRegister'];
-        document.querySelector('input[type="text"]').placeholder = textElements[language]['namePlaceholder'];
-        document.querySelector('input[type="email"]').placeholder = textElements[language]['emailPlaceholder'];
-        document.querySelector('input[type="password"]').placeholder = textElements[language]['passwordPlaceholder'];
-        document.querySelector('.btn-second').textContent = textElements[language]['signUp'];
         document.querySelector('.title-primary').textContent = textElements[language]['letsStart'];
-        document.querySelectorAll('.description-primary')[2].textContent = textElements[language]['insertData'];
-        document.querySelectorAll('.description-primary')[3].textContent = textElements[language]['inMaintenance'];
-        document.getElementById('signup').textContent = textElements[language]['signUp'];
+        document.querySelectorAll('.description-primary')[0].textContent = textElements[language]['insertData'];
+        document.querySelectorAll('.description-primary')[1].textContent = textElements[language]['inMaintenance'];
+        document.getElementById('signin').textContent = textElements[language]['signIn'];
+        document.querySelectorAll('.title-second')[0].textContent = textElements[language]['createAccount'];
+        document.querySelectorAll('.description-second')[0].textContent = textElements[language]['useEmailToRegister'];
+        document.getElementById('name').placeholder = textElements[language]['namePlaceholder'];
+        document.getElementById('email-signup').placeholder = textElements[language]['emailPlaceholder'];
+        document.getElementById('password-signup').placeholder = textElements[language]['passwordPlaceholder'];
+        signupButton.textContent = textElements[language]['signUp'];
         document.querySelectorAll('.title-second')[1].textContent = textElements[language]['loginToPlatform'];
         document.querySelectorAll('.description-second')[1].textContent = textElements[language]['useEmailToLogin'];
         document.querySelector('.password').textContent = textElements[language]['forgotPassword'];
+        document.querySelector('.remember-forgot label').textContent = textElements[language]['remind'];
+        
+        
+        signinButton.textContent = textElements[language]['signIn'];
     }
 
-    languageSelect.addEventListener('change', (event) => {
+    btnSignin.addEventListener("click", function () {
+        body.className = "sign-in-js";
+        updateLanguage(languageSelect.value);
+    });
+
+    btnSignup.addEventListener("click", function () {
+        body.className = "sign-up-js";
+        updateLanguage(languageSelect.value);
+    });
+
+    signupButton.addEventListener('click', function() {
+        window.location.href = 'home.html';
+    });
+
+    signinButton.addEventListener('click', function() {
+        window.location.href = 'home.html';
+    });
+
+    languageSelect.addEventListener('change', function(event) {
         updateLanguage(event.target.value);
     });
 
-    // Define o idioma padrão ao carregar a página
     updateLanguage('pt');
 });
