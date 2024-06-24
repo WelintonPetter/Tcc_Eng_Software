@@ -5,13 +5,28 @@
     box-sizing: border-box;
 }
 .avatar{
+    align-self: center;
+    cursor:pointer;
     width: 50px;
     position: absolute;
     top:5px;
     right:100px ;
-    align-self: center;
     filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.90));
+    
 }
+.second-sac{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #58af9b;
+    padding-bottom: 20px;
+}
+  .title-sac{
+    color: white;
+    padding-top: 20px;
+  }  
+
 .out{
     width: 40px;
     position: absolute;
@@ -160,6 +175,34 @@ body {
 .container-home:hover{
     width: 250px;
 }
+
+/* Adicione essas regras CSS ao seu arquivo style.css */
+.drop {
+    display: none;
+    position: absolute;
+    background-color: #202020;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 100px; /* Alinhamento à direita */
+    top: 60px; /* Ajuste de acordo com a altura da imagem do avatar */
+}
+
+.drop a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.drop a:hover {
+    background-color: #58af9b;
+}
+
+/* Mostrar o menu dropdown quando a classe 'show' estiver presente */
+.show {
+    display: block;
+}
+
 .first-content {
     display: flex;
 }

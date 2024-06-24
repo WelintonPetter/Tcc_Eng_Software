@@ -110,4 +110,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     updateLanguage('pt');
+    
+});
+// Crie um arquivo app.js e adicione este código
+
+document.addEventListener('DOMContentLoaded', function() {
+    const avatar = document.querySelector('.avatar');
+    const drop = document.querySelector('.drop');
+
+    avatar.addEventListener('click', function() {
+        drop.classList.toggle('show');
+    });
+
+    // Fecha o dropdown se o usuário clicar fora dele
+    window.onclick = function(event) {
+        if (!event.target.matches('.avatar')) {
+            if (drop.classList.contains('show')) {
+                drop.classList.remove('show');
+            }
+        }
+    }
 });
