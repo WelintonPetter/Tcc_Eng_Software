@@ -151,12 +151,22 @@ body {
     color: #58af9b;
 }
 
-.btn-second, .language-selector {
+.btn-second, .language-selector  {
     background-color: #58af9b;
     border: 1px solid #58af9b;
     transition: background-color .5s;
 }
+.btn-second-cadastro{
+    color: #090c0b;
+    box-shadow: 0 0 3px;
+}
 .btn-second:hover {
+    background-color: #fff;
+    border: 1px solid #58af9b;
+    color: #58af9b;
+}
+
+.btn-second-cadastro:hover {
     background-color: #fff;
     border: 1px solid #58af9b;
     color: #58af9b;
