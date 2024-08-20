@@ -75,6 +75,13 @@ body {
     padding: 30px;
 
 }
+.container-back{
+ 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('img/backgroud.jpg') no-repeat;
+}
 .content {
     background-color: #fff;
     border-radius: 15px;
