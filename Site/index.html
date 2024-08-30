@@ -35,20 +35,20 @@
                     </ul>
                 </div>
                 <p class="description description-second">ou use seu e-mail para cadastro:</p>
-                <form class="form">
+                <form class="form" action="dados_cadastros.php" method="post">
                     <label class="label-input" for="name">
                         <i class="far fa-user icon-modify"></i>
                         <input id="name" type="text" placeholder="Nome">
                     </label>
                     <label class="label-input" for="email-signup">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input id="email-signup" type="email" placeholder="Email">
+                        <input id="email-signup" type="email" name="email" placeholder="Email">
                     </label>
                     <label class="label-input" for="password-signup">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input id="password-signup" type="password" placeholder="Senha">
+                        <input id="password-signup" type="password" name="senha" placeholder="Senha">
                     </label>
-                    <button type="button" class="btn btn-second" id="signupButton">Cadastrar</button>     
+                    <button type="submit" class="btn btn-second" id="signupButton">Cadastrar</button>     
                        
                 </form>
             </div>
