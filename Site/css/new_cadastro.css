@@ -459,13 +459,33 @@ ul li.item-menu a{
     margin-bottom: 20px;
     line-height: 40px;
 }
+ul li.item-menu button{
+    text-decoration: none;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
 
-ul li.item-menu a .txt-link{
+ul li.item-menu button .txt-link{
 margin-left: 40px;
 color: #fff;
 
 }
+ul li.item-menu a .txt-link{
+    margin-left: 40px;
+    color: #fff;
+    
+}
+
+
+
 ul li.item-menu a .icon > i{
+    font-size: 30px;
+    color: #fff;
+    
+}
+
+ul li.item-menu button .icon > i{
     font-size: 30px;
     color: #fff;
     
@@ -762,3 +782,28 @@ ul li.item-menu a .icon > i{
 }
 
 
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button {
+    background: transparent; /* Define o fundo como transparente */
+    border: none; /* Remove a borda padrão */
+    color: #fff; /* Define a cor do texto como branco, se necessário */
+    cursor: pointer; /* Muda o cursor para uma mão ao passar sobre o botão */
+    padding: 0; /* Remove o preenchimento padrão */
+    display: flex; /* Garante que o conteúdo do botão se alinhe corretamente */
+    align-items: center; /* Alinha verticalmente o conteúdo do botão */
+    font-size: 20px; /* Ajusta o tamanho da fonte, se necessário */
+    transition: background-color 0.3s; /* Suaviza a transição de cor de fundo */
+    
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Adiciona uma leve cor de fundo ao passar o mouse */
+}

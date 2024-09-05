@@ -55,7 +55,7 @@
     position: absolute;
     top:20px;
     align-self: center;
-    right: 200px ;
+    right: 200px;
     filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.90));
 }
 
@@ -445,7 +445,7 @@ ul li.item-menu{
     color: #fff;
     text-decoration: none;
     font-size: 20px;
-    padding: 20px 4%;
+    padding: 10px 4%;
     display: flex;
     margin-bottom: 20px; 
     line-height: 40px;
@@ -746,7 +746,7 @@ ul li.item-menu a .icon > i{
     background-color: #57a698;
     border: none;
     color: white;
-    padding: 15px;
+    padding: 10px;
     margin: 5px 0;
     text-align: left;
     font-size: 16px;
@@ -762,3 +762,52 @@ ul li.item-menu a .icon > i{
 }
 
 
+/* Estilos gerais do carrossel */
+.carousel-container {
+    position: relative;
+    width: 30%;
+    left: 20%;
+    max-height: 500px; /* Limita a altura máxima do carrossel */
+    margin: 20px 0;
+    overflow: hidden; /* Garante que a imagem não exceda o container */
+    border-radius: 15px; /* Borda arredondada para o carrossel */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.8); /* Sombra para um efeito 3D */
+    
+}
+
+.carousel-inner img {
+    width: 10%;
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para texto */
+    color: #fff; /* Cor do texto */
+    bottom: 20px; /* Posiciona o texto um pouco acima do fundo */
+    left: 0;
+    right: 0;
+    text-align: center; /* Centraliza o texto */
+    padding: 10px;
+    border-radius: 5px; /* Borda arredondada */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    filter: brightness(0) invert(1); /* Para botões de controle brancos em fundo escuro */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.5); /* Fundo para os ícones de controle */
+    border-radius: 50%; /* Borda arredondada para os ícones */
+    padding: 10px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .carousel-caption {
+        font-size: 12px; /* Reduz o tamanho do texto em dispositivos menores */
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        padding: 5px; /* Ajusta o padding para telas menores */
+    }
+}

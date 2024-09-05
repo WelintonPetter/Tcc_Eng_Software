@@ -1,3 +1,33 @@
+<?php
+include('../models/conexao.php');
+include('../models/protect.php');
+
+// Verifica se o parâmetro de filtro foi enviado e o sanitiza
+$filter = isset($_GET['filter']) ? mysqli_real_escape_string($conn, $_GET['filter']) : '';
+
+// Monta a consulta SQL com base no filtro
+$sql = "SELECT * FROM ordem_os WHERE status_os = 'Nao_atendida'";
+if (!empty($filter)) {
+    $sql .= " AND mantenedor_os LIKE '%$filter%'";
+}
+
+// Executa a consulta
+$result = mysqli_query($conn, $sql);
+
+$orders = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $orders[] = $row;
+}
+
+// Fecha a conexão
+mysqli_close($conn);
+
+// Exibe os dados no formato JSON
+echo json_encode($orders);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -5,37 +35,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Site/style.css">
     <title>ACOMPANHAR ANDAMENTO</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
             <div class="container-top">
+                
                 <li class="drop-hover">
-                    <img src="img/avatar.png" alt="Foto de Perfil" class="avatar">
-                    <div class="drop">
-                        <a href="#">Menu</a>
-                        <a href="#">Conta</a>
-                        <a href="#">Dados da Empresa</a>
-                        <a href="sac.html">Sac</a>
-                    </div>
-                    <a href="index.html">
-                        <img src="icon/log-out.svg" alt="Out" class="out">
-                    </a>
-                </li>                   
+                    <img src="../icon/avatar.png" alt="Foto de Perfil" class="avatar">
+
+                    <a href="../models/logout.php">
+                        <img src="../icon/log-out.svg" alt="Out" class="out">
+                    </a> 
+                    <a href="../views/home.php">
+                        <img src="../icon/back.svg" alt="back" class="back">
+                    </a>                           
+                </li> 
+                                       
         </header>
         <main>
-            
-            
 
-            
             <div class="homeOrdem">
-
                 <div class="button-container">
                     <button id="addOrderButton">Adicionar Ordem</button>
                     <button id="graphicButton">Gráficos</button>
                     <button id="userButton">Meus dados</button>
                 </div>
-                
+
                 <div id="chartModal" class="modal hidden">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -56,9 +83,9 @@
                         <canvas id="orderTypeChart"></canvas>
                     </div>
                 </div>
-                
-                
-                
+
+
+
 
                 <div class="formulariOrdem">
                     <form id="orderForm" class="hidden">
@@ -106,7 +133,8 @@
                         <button id="clearFilter">Limpar Filtro</button>
                     </div>
                 </div>
-            </div>
+                </div>
+ 
 
             <section class="colunas">
                 <section class="coluna">
@@ -131,6 +159,62 @@
     </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
-<script src="/Site/script.js"></script>
+<script src="/site/js/script.js"></script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: '/site/views/minha_area.php', // Substitua pelo nome do seu arquivo PHP
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            data.forEach(function(order) {
+                const card = createCard(order); // Cria o card com os dados da ordem
+                // Adiciona o cartão à coluna correta com base no campo status
+                switch (order.status) { 
+                    case 'Para Fazer':
+                        $('#todoColumn').append(card);
+                        break;
+                    case 'Em Andamento':
+                        $('#inProgressColumn').append(card);
+                        break;
+                    case 'Para Rever':
+                        $('#reviewColumn').append(card);
+                        break;
+                    case 'Finalizado':
+                        $('#doneColumn').append(card);
+                        break;
+                    default:
+                        console.warn('Status desconhecido para o cartão:', order.status);
+                }
+            });
+            updateOrderCount(); // Atualiza a contagem de cartões por coluna
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Erro ao carregar os dados: ', textStatus, errorThrown);
+        }
+    });
+});
+
+
+const getCircleColor = (priority) => {
+    switch (priority) {
+        case 'Baixo':
+            return '#34d399';
+        case 'Médio':
+            return '#60a5fa';
+        case 'Alto':
+            return '#fbbf24';
+        case 'Crítico':
+            return '#d946ef';
+        default:
+            return '#ced4da';
+    }
+};
+
+// Outras funções como `updateOrderCount`, `dragStart`, `dragEnd`, etc., permanecem as mesmas.
+
+</script>
+
+
 </body>
 </html>

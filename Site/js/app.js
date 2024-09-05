@@ -115,19 +115,83 @@ document.addEventListener('DOMContentLoaded', function() {
 // Crie um arquivo app.js e adicione este código
 
 document.addEventListener('DOMContentLoaded', function() {
+    const notify = document.querySelector('.notify');
     const avatar = document.querySelector('.avatar');
-    const drop = document.querySelector('.drop');
+    const drop = document.querySelectorAll('.drop'); // Usando querySelectorAll para obter ambos os menus
+
+    // Função para alternar a visibilidade do dropdown
+    function toggleDropdown(element) {
+        element.classList.toggle('show');
+    }
 
     avatar.addEventListener('click', function() {
-        drop.classList.toggle('show');
+        toggleDropdown(drop[1]); // Segundo menu drop é o do avatar
+    });
+
+    notify.addEventListener('click', function() {
+        toggleDropdown(drop[0]); // Primeiro menu drop é o da notificação
     });
 
     // Fecha o dropdown se o usuário clicar fora dele
     window.onclick = function(event) {
         if (!event.target.matches('.avatar')) {
-            if (drop.classList.contains('show')) {
-                drop.classList.remove('show');
+            if (drop[1].classList.contains('show')) {
+                drop[1].classList.remove('show');
+            }
+        }
+        if (!event.target.matches('.notify')) {
+            if (drop[0].classList.contains('show')) {
+                drop[0].classList.remove('show');
             }
         }
     }
+});
+
+
+
+
+
+document.getElementById('signupButton').addEventListener('click', function(event) {
+    // Obtém os valores dos campos
+    var nome = document.getElementById('name').value.trim();
+    var email = document.getElementById('email-signup').value.trim();
+    var senha = document.getElementById('password-signup').value.trim();
+
+    // Verifica se algum campo está vazio
+    if (nome === '' || email === '' || senha === '') {
+        alert('Por favor, preencha todos os campos.');
+        event.preventDefault(); // Impede o envio do formulário
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Defina a data final da contagem regressiva
+    const countdownDate = new Date("Nov 04, 2024 00:00:00").getTime();
+
+    // Atualiza o temporizador a cada segundo
+    const timerInterval = setInterval(function() {
+        // Data e hora atuais
+        const now = new Date().getTime();
+
+        // Distância entre a data atual e a data de contagem regressiva
+        const distance = countdownDate - now;
+
+        // Cálculos de dias, horas, minutos e segundos
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Exibe os valores calculados nos elementos HTML correspondentes
+        document.getElementById("days").textContent = days.toString().padStart(2, '0');
+        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+        // Se a contagem regressiva terminar, parar o intervalo
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            document.getElementById("countdown").textContent = "Tempo Esgotado!";
+        }
+    }, 1000);
 });
