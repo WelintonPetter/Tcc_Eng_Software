@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-family: Arial, sans-serif;
+            color: rgb(255, 255, 255);
+        }
+
+        .countdown div {
+            text-align: center;
+        }
+
+        .countdown .number {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .countdown .label {
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+    </style>
+    <script>
+      function enviarFormulario(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            console.log("Formulário enviado");
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch('http://127.0.0.1:1880/api-form', { // URL do Node-RED
+                method: form.method,
+                body: formData
+            })
+            .then(response => {
+                console.log("Resposta recebida");
+                return response.text();
+            })
+            .then(data => {
+                console.log("Dados recebidos:", data);
+                document.getElementById('resposta').innerHTML = data;
+            })
+            .catch(error => console.error('Erro:', error));
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="second-sac">
+            <h1 class="title title-sac">Estoque</h1>
+            <form method="get" >
+                <input name="nome" value="Welinton">
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="resposta">
+                <h3>a</h3>
+                <!-- A resposta do servidor será exibida aqui -->
+            </div>
+        </div>
+    </div>
+        
+    <main>
+        <!-- Seu conteúdo principal aqui -->
+    </main>
+    <footer>
+        <!-- Seu conteúdo de rodapé aqui -->
+    </footer>  
+</body>
+</html>
